@@ -1,0 +1,105 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="100"/>
+            <ColumnDefinition MaxWidth="300"/>
+            <ColumnDefinition MaxWidth="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+            <Label x:Name="lblLang"></Label>
+            <Label x:Name="lblGender"></Label>
+            <Label x:Name="lblRes"></Label>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical">
+            <Label Content="Pick Favourite Team" MaxWidth="150"></Label>
+            <ComboBox x:Name="cbTeam" MaxWidth="150"></ComboBox>
+            <Button Content="Select Team" MaxHeight="30" MaxWidth="100" Margin="0 20 0 0" Click="SelectFavTeamButton_Click"></Button>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="0" Grid.Column="2" >
+            <Label Content="Pick Opposite Team" MaxWidth="150"></Label>
+            <ComboBox x:Name="cbOppTeam" MaxWidth="150" IsEnabled="False"></ComboBox>
+            <Button x:Name="btnOppTeam" Content="Select" MaxHeight="30" MaxWidth="100" Margin="0 20 0 0" IsEnabled="False" Click="SelectOppTeamButton_ClickAsync"></Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="3">
+            <Label x:Name="lblFavTeam" Content="Select Favourite Team"></Label>
+            <Button x:Name="btnInfoFav" Width="40" Content="Info" MaxWidth="100" HorizontalAlignment="Left" Click="FavInfoButtonClick" IsEnabled="False">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard TargetProperty="Width">
+                                    <DoubleAnimation
+                                        From="40"
+                                        To="80"
+                                        Duration="0:0:0.5"
+                                        AutoReverse="True"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+            
+            <Label x:Name="lblOppTeam" Content="Select Opposite Team"></Label>
+            <Button x:Name="btnInfoOpp" Width="40" Content="Info" MaxWidth="100" HorizontalAlignment="Left" Click="OppInfoButtonClick" IsEnabled="False">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard TargetProperty="Width">
+                                    <DoubleAnimation
+                                        From="40"
+                                        To="80"
+                                        Duration="0:0:0.5"
+                                        AutoReverse="True"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+            <ListBox x:Name="lbPlayersFav" ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+            <ListBox x:Name="lbPlayersOpp" ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Top">
+            <Button x:Name="btnSelectFav" Content="Select player" MaxWidth="100" IsEnabled="False" Click="SelectFavPlayer_Click">
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="2" VerticalAlignment="Top">
+            <Button x:Name="btnSelectOpp" Content="Select player" MaxWidth="100" IsEnabled="False" Click="SelectOppPlayer_Click">
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Right"> 
+            <Button Content="Change Settings" MaxWidth="100" Click="ChangeSettings_Click" Margin="0 0 10 10" Background="Beige"></Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

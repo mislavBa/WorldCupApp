@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp.PlayerDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="PlayerDetails" Height="350" Width="400">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation
+                        Storyboard.TargetProperty="(Window.Opacity)"
+                        From="0.0"
+                        To="1.0"
+                        Duration="0:0:0.6"
+                        AutoReverse="False"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <StackPanel>
+            <Label Content="Name" HorizontalAlignment="Center"></Label>
+            <TextBox x:Name="tbName" MaxWidth="200" IsReadOnly="True"></TextBox>
+
+            <Label Content="Shirt Number" HorizontalAlignment="Center"></Label>
+            <TextBox x:Name="tbNumber" MaxWidth="200" IsReadOnly="True"></TextBox>
+
+            <Label Content="Position" HorizontalAlignment="Center"></Label>
+            <TextBox x:Name="tbPosition" MaxWidth="200" IsReadOnly="True"></TextBox>
+
+            <Label Content="Is Captain" HorizontalAlignment="Center"></Label>
+            <TextBox x:Name="tbCaptain" MaxWidth="200" IsReadOnly="True"></TextBox>
+
+            <Button x:Name="btnPlayerDets" Content="OK" MaxWidth="80" Margin="0 50 0 0" Click="Close_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

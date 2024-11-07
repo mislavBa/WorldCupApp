@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApp.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="SettingsWindow" Height="450" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="100"/>
+            <RowDefinition/>
+            <RowDefinition MaxHeight="100"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            
+            <Label Content="Language"/>
+            <ComboBox x:Name="cbLang"  MaxWidth="200" MinHeight="20">
+                <ComboBoxItem>Croatian</ComboBoxItem>
+                <ComboBoxItem>English</ComboBoxItem>
+            </ComboBox>
+            
+            <Label Content="Gender"/>
+            <ComboBox x:Name="cbGender" MaxWidth="200" MinHeight="20">
+                <ComboBoxItem>Men</ComboBoxItem>
+                <ComboBoxItem>Women</ComboBoxItem>
+            </ComboBox>
+            
+            <Label Content="Resoulution"/>
+            <ComboBox x:Name="cbResolution" MaxWidth="200" MinHeight="20">
+                <ComboBoxItem>FullScreen</ComboBoxItem>
+                <ComboBoxItem>1920x1080</ComboBoxItem>
+                <ComboBoxItem>1280x720</ComboBoxItem>
+                <ComboBoxItem>800x600</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <Button Grid.Row="2" Grid.Column="1" Content="Select" Width="100" MaxHeight="30" Click="SaveSettingsButton_Click"></Button>
+    </Grid>
+</Window>
